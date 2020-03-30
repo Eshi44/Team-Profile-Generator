@@ -32,8 +32,55 @@ const questionsForEmployess = [
 //employee email
 {
     type: "input",
-    message: "What is the email of the employee?"
+    message: "What is the email of the employee?",
+},
+//get roll of employee
+{
+    type: "list",
+    message: "What is the role of the employee?",
+    name: "role",
+    choices : ["engineer", "intern", "manager"],
+},
+// when engineer
+{
+    when: choice => {
+        return choice.role == "engineer"
+    },
+    type:"input",
+    message: "What is your GitHub username?",
+    name: "github",
+    
+ 
+},
+//when intern
+{
+    when: choice => {
+        return choice.role == "intern"
+    },
+    type: "input",
+    message: "What is the name of your school?",
+    name: "school",
+
+
+},
+//when manager
+{
+    when: choice => {
+        return choice.role == "manager"
+    },
+    type: "input",
+    message: "What is your office number?",
+    name: "officeNumber",
+
+
+},
+//check if more team members
+{
+    type: "list",
+    message: "Do you have any more team members you'd liek to add?",
+    choices: ["Yes", "No"]
 }
+
 ]
 
 ​
