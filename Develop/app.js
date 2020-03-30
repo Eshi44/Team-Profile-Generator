@@ -13,6 +13,29 @@ const render = require("./lib/htmlRenderer");
 ​
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+let team = [];
+
+const questionsForEmployess = [
+//employee name    
+{
+    type: "input",
+    message: "What is the name of the the employee?",
+    name:"name",
+},
+//employee id
+{
+    type: "input",
+    message: "id",
+    name: "What is the id of the employee?"
+},
+//employee email
+{
+    type: "input",
+    message: "What is the email of the employee?"
+}
+]
+
 ​
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
