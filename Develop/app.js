@@ -4,7 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const promisify = require('util');
+const promisify = require("util");
 ​
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -42,46 +42,49 @@ const questionsForEmployees = [
     name: "role",
     choices : ["engineer", "intern", "manager"],
 },
+];
 // when engineer
+const questionForEngineer = 
 {
-    when: choice => {
-        return choice.role == "engineer"
-    },
+    // when: choice => {
+    //     return choice.role == "engineer"
+    // },
     type:"input",
     message: "What is your GitHub username?",
     name: "github",
     
  
-},
+};
 //when intern
+const questionForIntern = 
 {
-    when: choice => {
-        return choice.role == "intern"
-    },
+    // when: choice => {
+    //     return choice.role == "intern"
+    // },
     type: "input",
     message: "What is the name of your school?",
     name: "school",
 
 
-},
+};
 //when manager
+const questionForManager = 
 {
-    when: choice => {
-        return choice.role == "manager"
-    },
+    // when: choice => {
+    //     return choice.role == "manager"
+    // },
     type: "input",
     message: "What is your office number?",
     name: "officeNumber",
 
+};
 
-},
-]
 //check if more team members
 const checkForMoreEmployees =
 {
     type: "list",
     name: "addMore",
-    message: "Do you have any more team members you'd liek to add?",
+    message: "Do you have any more team members you'd like to add?",
     choices: ["Yes", "No"]
 };
 
@@ -100,18 +103,49 @@ async function checkForMoreEmployees() {
 };
 
 //create another asyn funtion that creates the team by pushing the new constructor into empty team array
-function createTeam() {
-}
+async function createTeam() {
+
+        try {
+            const inputFromUsers = await inquirer.prompt(inputFromUsers);
+            const {name,id,email} = inputFromUsers;
+            //use switch and break
+            switch(choice.role) {
+                case "Engineer": try{
+                const engineerInput = await inquirer.prompt(choice.role === "engineer");
+                const {github} = engineerInput;
+                if (choice.role == "engineer") {
+                    let engineer = new Engineer(name,id,email,github);
+                    team.push(engineer);
+                }await checkForMoreEmployees();
+            }catch (err) {
+                console.log("Error for the engineer");
+            }
+        }
+    
+    };
+
+      // inquirer.prompt(questionsForEmployees).then(input => {
+        // if(input.role == "engineer") {
+        //     var newEmployee = new Engineer(input.name,input.email,input.github,team.length + 1 );
+        // }else {
+        //     var newEmployee = new Intern(input.name,input.email,input.school,team.length + 1 );
+        // }
+        // team.push(newEmployee);
+    
+    
+    
+// }
+// function addManager(){
+// inquire.prompt(questionsForEmployees).then(input => {
+//     if(input.role == "engineer") {
+//         var newEmployee = new Manager(input.name,input.email,input.officeNumber, );
+//     }
+//     team.push(newEmployee);
+//     });
+// }
 
 
-
-
-
-//create async funtion foro the renderhtml to occur and to write the outpu to
-
-
-
-
+//create async funtion for the renderhtml to occur and to write the outpu to
 
 
 // addManager();
