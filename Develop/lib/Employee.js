@@ -16,7 +16,7 @@ class Employee {
     return this.name;
   }
   //   * getId()
-  getID() {
+  getId() {
     return this.id;
   }
   //   * getEmail()

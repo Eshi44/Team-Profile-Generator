@@ -16,7 +16,7 @@ const render = require("./lib/htmlRenderer");
 
 let team = [];
 
-const questionsForEmployess = [
+const questionsForEmployees = [
 //employee name    
 {
     type: "input",
@@ -77,12 +77,42 @@ const questionsForEmployess = [
 //check if more team members
 {
     type: "list",
+    name: "addMore",
     message: "Do you have any more team members you'd liek to add?",
     choices: ["Yes", "No"]
 }
 
 ]
 
+function createTeam() {
+
+    inquire.prompt(questionsForEmployees).then(input => {
+        if(input.role == "engineer") {
+            var newEmployee = new Engineer(input.name,input.email,input.github,team.length + 1 );
+        }else {
+            var newEmployee = new Intern(input.name,input.email,input.school,team.length + 1 );
+        }
+        team.push(newEmployee);
+        if (input.addMore === "Yes"){
+            createTeam();
+        }else {
+            console.log('No');
+        }
+    });
+    
+}
+function addManager(){
+inquire.prompt(questionsForEmployees).then(input => {
+    if(input.role == "engineer") {
+        var newEmployee = new Manager(input.name,input.email,input.officeNumber, );
+    }
+    team.push(newEmployee);
+    });
+}
+
+addManager();
+createTeam();
+render(team);
 ​
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
