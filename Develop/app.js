@@ -40,7 +40,7 @@ const questionsForEmployees = [
     type: "list",
     message: "What is the role of the employee?",
     name: "role",
-    choices : ["engineer", "intern", "manager"],
+    choices : ["Engineer", "Intern", "Manager"],
 },
 ];
 // when engineer
@@ -109,18 +109,28 @@ async function createTeam() {
             const inputFromUsers = await inquirer.prompt(inputFromUsers);
             const {name,id,email} = inputFromUsers;
             //use switch and break
-            switch(choice.role) {
+            switch(inputFromUsers.role) {
                 case "Engineer": try{
-                const engineerInput = await inquirer.prompt(choice.role === "engineer");
+                const engineerInput = await inquirer.prompt(questionForEngineer);
                 const {github} = engineerInput;
-                if (choice.role == "engineer") {
                     let engineer = new Engineer(name,id,email,github);
                     team.push(engineer);
-                }await checkForMoreEmployees();
+                await checkForMoreEmployees();
             }catch (err) {
                 console.log("Error for the engineer");
             }
+        break;
+
+        case "Intern": try{
+            const internInput = await inquirer.prompt(questionForIntern);
+            const {school} = internInput;
+                let engineer = new Engineer(name,id,email,school);
+                team.push(intern);
+            await checkForMoreEmployees();
+        }catch (err) {
+            console.log("Error for the intern");
         }
+    break;
     
     };
 
