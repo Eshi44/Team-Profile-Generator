@@ -8,7 +8,7 @@ I want to generate a webpage that displays my team's basic info
 so that I have quick access to emails and GitHub profiles
 ```
 
-#Team Generator Gif
+# Team Generator Gif
 * Below is a gif depicting the npm inquirer prompt in action.
 
 ![gif](./Assets/img/Team.gif)
