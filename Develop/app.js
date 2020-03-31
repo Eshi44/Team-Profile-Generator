@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const promisify = require('util');
 ​
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -74,45 +75,48 @@ const questionsForEmployees = [
 
 
 },
+]
 //check if more team members
+const checkForMoreEmployees =
 {
     type: "list",
     name: "addMore",
     message: "Do you have any more team members you'd liek to add?",
     choices: ["Yes", "No"]
-}
+};
 
-]
-
-function createTeam() {
-
-    inquire.prompt(questionsForEmployees).then(input => {
-        if(input.role == "engineer") {
-            var newEmployee = new Engineer(input.name,input.email,input.github,team.length + 1 );
-        }else {
-            var newEmployee = new Intern(input.name,input.email,input.school,team.length + 1 );
+//create async function to check if user added more employees
+async function checkForMoreEmployees() {
+    try {
+        const checkForMore = await inquirer.prompt(checkForMoreEmployees);
+        if(checkForMore.addmore === "Yes") {
+            await createTeam();
         }
-        team.push(newEmployee);
-        if (input.addMore === "Yes"){
-            createTeam();
-        }else {
-            console.log('No');
-        }
-    });
-    
-}
-function addManager(){
-inquire.prompt(questionsForEmployees).then(input => {
-    if(input.role == "engineer") {
-        var newEmployee = new Manager(input.name,input.email,input.officeNumber, );
+        return team;
     }
-    team.push(newEmployee);
-    });
+    catch (err) {
+        console.log("There is an error in the chackForMre Employees Function");
+    }
+};
+
+//create another asyn funtion that creates the team by pushing the new constructor into empty team array
+function createTeam() {
 }
 
-addManager();
-createTeam();
-render(team);
+
+
+
+
+//create async funtion foro the renderhtml to occur and to write the outpu to
+
+
+
+
+
+
+// addManager();
+// createTeam();
+// render(team);
 ​
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
