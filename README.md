@@ -13,7 +13,7 @@ so that I have quick access to emails and GitHub profiles
 
 ![gif](./Assets/img/Team.gif)
 
-
+## My Team Example
 * Below is a picture of the finished product.
 ![deployed](./Assets/img/myTeam.PNG)
 
