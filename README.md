@@ -17,8 +17,7 @@ so that I have quick access to emails and GitHub profiles
 * Below is a picture of the finished product.
 ![deployed](./Assets/img/myTeam.PNG)
 
-
-
+## Test Driven Development Tests Passed
 * Below is a picture of the passing tests.
 
 ![tdd](./Assets/img/npm-test-pass.PNG)
