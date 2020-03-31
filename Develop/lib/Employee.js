@@ -9,11 +9,11 @@ class Employee {
     //   * email
     this.email = email;
   }
-
   // methods:
   //   * getName()
   getName() {
     return this.name;
+  
   }
   //   * getId()
   getId() {
@@ -28,5 +28,7 @@ class Employee {
     return "Employee";
   }
 }
+
+console.log("It works");
 
 module.exports = Employee;
