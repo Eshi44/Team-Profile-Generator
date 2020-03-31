@@ -9,7 +9,7 @@ so that I have quick access to emails and GitHub profiles
 ```
 
 
-* Below is a gif depicting the npm inquirer prompt in action.
+## Below is a gif depicting the npm inquirer prompt in action.
 
 ![gif](./Assets/img/Team.gif)
 
