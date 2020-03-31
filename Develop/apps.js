@@ -1,4 +1,4 @@
-console.log('Hello World');
+// console.log('Hello World');
 
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -8,17 +8,14 @@ const path = require("path");
 const fs = require("fs");
 const promisify = require('./node_modules/util.promisify');
 
-console.log('Hello World');
-
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 let team = [];
 
-console.log('Hello World');
+// console.log("You've made it to the team");
 
 const questionsForEmployees = [
     //employee name    
@@ -48,7 +45,7 @@ const questionsForEmployees = [
     },
     ];
 
-    console.log("HI");
+    // console.log("You've made it past the employee question array");
 
     const questionForEngineer = 
 {
@@ -61,7 +58,7 @@ const questionsForEmployees = [
     
 };
 
-console.log("QFE");
+// console.log("QFE");
 
 //when intern
 const questionForIntern = 
@@ -75,7 +72,7 @@ const questionForIntern =
 
 };
 
-console.log("QFI");
+// console.log("QFI");
 
 //when manager
 const questionForManager = 
@@ -88,8 +85,7 @@ const questionForManager =
     name: "officeNumber",
 
 };
-console.log("QFM");
-
+// console.log("QFM");
 
 //check if more team members
 const askForMoreEmployees =
@@ -100,7 +96,7 @@ const askForMoreEmployees =
     default: false,
 };
 
-console.log("check employees");
+// console.log("check employees");
 
 //create async function to check if user added more employees
 async function checkForMoreEmployees() {
@@ -112,7 +108,7 @@ async function checkForMoreEmployees() {
         return team;
     }
     catch (err) {
-        console.log("There is an error in the chackForMre Employees Function");
+        console.log("There is an error in the checkForMoreEmployees Function");
     }
 };
 console.log("function");
@@ -125,6 +121,7 @@ async function createTeam() {
         const {name,id,email} = inputFromUsers;
         //use switch and break
         switch(inputFromUsers.role) {
+            //case for engineer
             case "Engineer": try{
             const engineerInput = await inquirer.prompt(questionForEngineer);
             const {github} = engineerInput;
@@ -135,7 +132,7 @@ async function createTeam() {
             console.log("Error for the engineer");
         };
     break;
-
+//case for intern
     case "Intern": try{
         const internInput = await inquirer.prompt(questionForIntern);
         const {school} = internInput;
@@ -146,7 +143,7 @@ async function createTeam() {
         console.log("Error for the intern");
     };
 break;
-
+//case for manager
 case "Manager": try{
     const managerInput = await inquirer.prompt(questionForManager);
     const {officeNumber} = managerInput;
@@ -158,25 +155,26 @@ case "Manager": try{
 };
 break;
         }
+        //catch
     }catch (err) {
         console.log("Error!")
     }
 
 };
 
-console.log("wow");
-
+// console.log("wow, much far");
+//async function 
 async function main() {
     await createTeam();
 
     const renderedHtml = render(team);
 
-    var dir = './output';
-    if(!fs.existsSync(dir)){
+    var outputted = './output';
+    if(!fs.existsSync(outputted)){
         console.log("outputting");
-        fs.mkdirSync(dir);
+        fs.mkdirSync(outputted);
     };
-
+//write to file
     fs.writeFile(outputPath, renderedHtml, error => {
         if(error) throw error;
         console.log("Done!");
@@ -184,4 +182,5 @@ async function main() {
 
 
 }
+//promise/ catch
 main().then(()=>console.log('Yay!')).catch((err)=>console.log(err));
