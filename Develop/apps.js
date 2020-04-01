@@ -157,23 +157,26 @@ async function createTeam() {
 
 // console.log("wow, much far");
 //async function
-async function main() {
+async function mainHTML() {
+  //waits til createTeam function is ready
   await createTeam();
 
-  const renderedHtml = render(team);
 
-  var outputted = "./output";
-  if (!fs.existsSync(outputted)) {
+//check if file does not exist by checking with fs
+  if (!fs.existsSync("./output")) {
     console.log("outputting");
-    fs.mkdirSync(outputted);
+    //if does not exit - create directory folder 'output'
+    fs.mkdirSync("./output");
   }
   //write to file
-  fs.writeFile(outputPath, renderedHtml, error => {
+  //use parameters var outputPath, the render team function passing
+  //the array team, and the anon callback function err
+  fs.writeFile(outputPath,  render(team), error => {
     if (error) throw error;
     console.log("Done!");
   });
 }
-//promise/ catch
-main()
+//call mainHTML function and return promise/ catch
+mainHTML()
   .then(() => console.log("Yay!"))
-  .catch(err => console.log(err));
+  .catch(error => console.log(error));
