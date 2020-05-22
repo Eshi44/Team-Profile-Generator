@@ -13,6 +13,10 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+
+console.log("Enter information for each team member");
+console.log("--------------------------------------");
+
 let team = [];
 
 // console.log("You've made it to the team");
@@ -27,8 +31,8 @@ const questionsForEmployees = [
   //employee id
   {
     type: "input",
-    message: "id",
-    name: "What is the id of the employee?"
+    message: "What is the id of the employee?",
+    name: "id"
   },
   //employee email
   {
@@ -56,7 +60,6 @@ const questionForEngineer = {
   name: "github"
 };
 
-// console.log("QFE");
 
 //when intern
 const questionForIntern = {
@@ -103,7 +106,6 @@ async function checkForMoreEmployees() {
     console.log("There is an error in the checkForMoreEmployees Function");
   }
 }
-console.log("function");
 
 //create another asyn funtion that creates the team by pushing the new constructor into empty team array
 async function createTeam() {
@@ -173,10 +175,11 @@ async function mainHTML() {
   //the array team, and the anon callback function err
   fs.writeFile(outputPath,  render(team), error => {
     if (error) throw error;
-    console.log("Done!");
+    console.log("You have successfully generated your new team");
+    console.log("---------------------------------------------");
   });
 }
 //call mainHTML function and return promise/ catch
 mainHTML()
-  .then(() => console.log("Yay!"))
+  .then(() => console.log("Please check the output folder for your team.html"))
   .catch(error => console.log(error));

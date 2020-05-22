@@ -1,15 +1,27 @@
-div.col-12.jumbotron.mb-3.team-heading {
-background-color: #e64a58;
+#jumbo {
+/* background-color: #1925ce;  */
+/* background-image: url("team.png"); */
+background-size: cover;
+height: 30%;
+width:100%;
 }
 h1.text-center {
-    color: white;
+    font-size: 50px;
+    color: #0079db;
+    font-weight: bold;
+    text-align: center;
 }
 .card-header {
-    background-color: #147bf3;
+    background-color: #0079db;
 }
 .card-title {
     color: white;
 }
 .card-body {
     background-color: #f6f7f8;
+}
+.card.employee-card {
+    margin-top: 5%;
+    margin-right:5%;
+    margin-bottom: 10%;
 }
