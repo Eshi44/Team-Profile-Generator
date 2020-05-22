@@ -1,5 +1,9 @@
-div.col-12.jumbotron.mb-3.team-heading {
-background-color: #e64a58;
+#jumbo {
+/* background-color: #1925ce;  */
+/* background-image: url("team.png"); */
+background-size: cover;
+height: 30%;
+width:100%;
 }
 h1.text-center {
     color: white;
