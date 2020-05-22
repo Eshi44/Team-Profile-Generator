@@ -29,6 +29,5 @@ class Employee {
   }
 }
 
-console.log("It works");
 
 module.exports = Employee;

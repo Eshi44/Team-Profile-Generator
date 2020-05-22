@@ -10,22 +10,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading"></div>
-                <h1 class="text-center">My Generated Team</h1>
+        <div class="row d-flex justify-content-center">
+            <img id="jumbo" src="team.png"/>
+                <h1 class="text-center animate__animated animate__bounce">My Team</h1>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+        <div class="row d-flex justify-content-center">
+            
                 {{ team }}
-            </div>
+            
         </div>
     </div>
 </body>
